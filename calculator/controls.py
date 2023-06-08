@@ -20,10 +20,30 @@ class CalcButton(tk.Frame):
         super().__init__(location, width=68, height=50)
         self.pack_propagate(False)
         self.button = tk.Button(self, text=text, command=self.pressed)
-        self.command = command_function 
+        self.command_function = command_function 
         self.text = text
         #command espera que el parametro sea una receta (una funcion que pueda invocar), no el resultado de haber invocado la funncion
         self.button.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
     def pressed(self):
-        self.command(self.text)
+        self.command_function(self.text)
+
+
+
+class KeyBoard(tk.Frame):
+    def __init__(self, location, command_function):
+        super().__init__(location, width=272, height=250)
+        
+        CalcButton(self, command_function,'AC').grid(row=0, column=0, columnspan=3, sticky='WE')
+        CalcButton(self, command_function,'/').grid(row=0, column=3)
+        CalcButton(self, command_function,'C').grid(row=1, column=0)
+        CalcButton(self, command_function,'D').grid(row=1, column=1)
+        CalcButton(self, command_function,'M').grid(row=1, column=2, rowspan=3, sticky='NS')
+        CalcButton(self, command_function,'x').grid(row=1, column=3)
+        CalcButton(self, command_function,'X').grid(row=2, column=0)
+        CalcButton(self, command_function,'L').grid(row=2, column=1)
+        CalcButton(self, command_function,'-').grid(row=2, column=3)
+        CalcButton(self, command_function,'I').grid(row=3, column=0)
+        CalcButton(self, command_function,'V').grid(row=3, column=1)
+        CalcButton(self, command_function,'+').grid(row=3, column=3)
+        CalcButton(self, command_function,'=').grid(row=4, column=0, columnspan=4, sticky='EW')

@@ -2,8 +2,4 @@ evirtual/
 **__pycache__/
 .DS_Store
 calculator/calculator_Iv3.py
-calculator/calculator_v0.py
 calculator/controls_Iv3.py
-calculator/controls_v0.py
-calculator_Iv3
-controls_Iv3
